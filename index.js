@@ -11,8 +11,10 @@ io.on("connection", function(socket) {
   console.log("a user connected");
   socket.on("post_message", data => {
     console.log(data);
-    const { name, message } = data;
-    io.emit("get_new_message", { name, message });
+    const { name, message, id } = data;
+    socket.broadcast.emit("get_new_message", { name, message });
+    // socket.emit("get_new_message", "can you hear me?", 1, 2, "abc");
+    io.to(`${id}`).emit("get_new_message", { name: "you", message });
   });
 });
 
