@@ -5,7 +5,7 @@ require("dotenv").config();
 
 let userNum = 0;
 
-http.listen(process.env.PORT || 3001, () =>
+http.listen(process.env.PORT || 3000, () =>
   console.log(`Listening on http://localhost:${PORT}`)
 );
 
