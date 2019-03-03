@@ -4,10 +4,9 @@ var io = require("socket.io")(http);
 require("dotenv").config();
 
 let userNum = 0;
+const port = process.env.PORT || 3000;
 
-http.listen(process.env.PORT || 3000, () =>
-  console.log(`Listening on http://localhost:${PORT}`)
-);
+http.listen(port, () => console.log(`Listening on http://localhost:${port}`));
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
