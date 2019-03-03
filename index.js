@@ -1,10 +1,13 @@
 var app = require("express")();
 var http = require("http").Server(app);
 var io = require("socket.io")(http);
-
-const PORT = 3001;
+require("dotenv").config();
 
 let userNum = 0;
+
+http.listen(process.env.PORT || 3001, () =>
+  console.log(`Listening on http://localhost:${PORT}`)
+);
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
@@ -35,5 +38,3 @@ io.on("connection", function(socket) {
     io.emit("get user number", { userNum });
   });
 });
-
-http.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
