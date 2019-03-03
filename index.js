@@ -32,7 +32,8 @@ io.on("connection", function(socket) {
     // socket.emit("get_new_message", "can you hear me?", 1, 2, "abc");
     io.to(`${id}`).emit("get new message", { name: "당신: ", message });
   });
-  socket.on("disconnect", () => {
+  socket.on("disconnect", reason => {
+    console.log(reason);
     userNum--;
     io.emit("get user number", { userNum });
   });
