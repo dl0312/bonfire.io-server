@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "heroku": "^7.22.2",
     "nodemon": "^1.18.10",
     "socket.io": "^2.2.0"
   },
